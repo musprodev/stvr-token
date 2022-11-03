@@ -8,14 +8,15 @@ contract STREAMLIVR is ERC20 {
         _mint(msg.sender, initialSupply * (10 ** decimals()));
     }
 
+    address contentCreator;
+    address contentConsumer;
+
     //tiping the content creator streamlivr token 
 
-address contentCreator;
-address contentConsumer;
-
-function tip( address _contentCreator, uint _amount) public{
+    function tip( address _contentCreator, uint _amount) public{
     contentCreator = _contentCreator;
     contentConsumer = _msgSender();
     _transfer(contentConsumer, contentCreator, _amount);
+    }
 }
-}
+  
